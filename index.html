@@ -1,0 +1,128 @@
+<html>
+
+<head>
+  <title>MQTT</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    html{overflow-x: hidden}
+  </style>
+  <header>
+    <h1 class="text-light">MQTT over Web Socket</h1>
+  </header>
+</head>
+<br>
+
+<body class="bg-dark">
+  <div class="row">
+    <form class="col-md-3 border rounded" style="margin-left:2%">
+      <nav class="text-light text-center bg-info">
+        <h1>Broker</h1>
+      </nav><br>
+      <label class="text-light text-bold" for="address">Address:</label>
+      <input type="text" class="form-control" id="address" value="wss://test.mosquitto.org:8081/mqtt">
+      <br>
+      <button class="btn btn-info align-items-center" id="connect" style="margin-bottom: 20px;">Connect</button>
+      <button class="btn btn-info align-items-center" id="disconnect" style="margin-bottom: 20px;">Disconnect</button><br>
+      <label class="text-light text-bold" for="status">Status:</label>
+      <input type="text" class="form-control btn-link disabled" aria-disabled="true" id="status"><br>
+    </form>
+    <form class="col-md-3 border rounded" style="margin-left:2%">
+      <nav class="text-light text-center bg-info">
+        <h1>Publish</h1>
+      </nav><br>
+      <label class="text-light text-bold" for="topic">Topic:</label>
+      <input type="text" class="form-control" id="pubTopic" placeholder="Enter topic"><br>
+      <label class="text-light text-bold" for="payload">Payload:</label>
+      <input type="text" class="form-control" id="pubPayload" placeholder="Enter payload"><br>
+      <button class="btn btn-info align-items-center" id="publish" style="margin-bottom: 20px;">Publish</button>
+    </form>
+    <form class="col-sm-3 border rounded" style="margin-left:2%">
+      <nav class="text-light text-center bg-info">
+        <h1>Subscribe</h1>
+      </nav><br>
+      <label class="text-light text-bold" id="topic" for="topicsubscribe">Topic:</label>
+      <input type="text" class="form-control" id="subTopic" placeholder="Enter subtopic"><br>
+      <button class="btn btn-info align-items-center" id="btnSubscribe" style="margin-bottom: 10px;">Subscribe</button>
+      <button class="btn btn-info align-items-center" id="btnUnsubscribe" style="margin-bottom: 10px;">Unsubscribe</button><br>
+    </form>
+  </div>
+  <div class="row">
+    <div class="border rounded col-sm-3" style="margin-left:2%">
+      <div>
+        <div>
+          <label>
+            <nav class="text-light text-center bg-info">
+              <h2>Incoming Messages</h2>
+            </nav><br>
+          </label>
+          <table class="table  table-bordered" id="publishReceiver">
+            <thead>
+              <tr>
+                <th class="text-light">Topic</th>
+                <th class="text-light">Message</th>
+                <th class="text-light">Time Stamp</th>
+              </tr>
+            </thead>
+            <tbody id="tbReceive" class="text-light">
+            </tbody>
+            <div class="row">
+            </div>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="border rounded col-sm-3" style="margin-left:2%">
+      <div>
+        <div>
+          <label>
+            <nav class="text-light text-center bg-info">
+              <h2 class="text-center">Published Messages</h2>
+            </nav><br>
+          </label>
+          <table class="table  table-bordered" id="pubReceiver">
+            <thead>
+              <tr>
+                <th class="text-light">Topic</th>
+                <th class="text-light">Message</th>
+                <th class="text-light">Time Stamp</th>
+              </tr>
+            </thead>
+            <tbody id="tbPublish" class="text-light">
+              <div class="row">
+              </div>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="border rounded col-sm-3" style="margin-left:2%">
+      <div>
+        <div>
+          <label>
+            <nav class="text-light text-center bg-info">
+              <h2 class="text-center">Topics Subscribed</h2>
+            </nav><br>
+          </label>
+          <table class="table  table-bordered" id="topicReceiver">
+            <thead>
+              <tr>
+                <th class="text-light">Topic</th>
+                <th class="text-light">Time Stamp</th>
+              </tr>
+            </thead>
+            <tbody id="tbSub" class="text-light">
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+<script src="scripts/browserMqtt.js"></script>
+<script src="scripts/controller.js"></script>
+
+</html>
