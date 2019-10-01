@@ -1,0 +1,20 @@
+{
+  "name": "patchanmqttpaho",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iampatik/patchanmqttpaho.git"
+  },
+  "author": "Patchan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/iampatik/patchanmqttpaho/issues"
+  },
+  "homepage": "https://github.com/iampatik/patchanmqttpaho#readme"
+}
